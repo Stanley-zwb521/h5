@@ -1,0 +1,502 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2 学习自适应网页设计</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3 Bootstrap学习" href="bootstrap.html" />
+    <link rel="prev" title="1 使用 HTML5 和 CSS3 设计个人页面" href="h5.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/front+end+dev.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">培训资料：</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="first.html">教学计划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h5.html"><span class="sectnum">1</span> 使用 HTML5 和 CSS3 设计个人页面</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><span class="sectnum">2</span> 学习自适应网页设计</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2"><span class="sectnum">2.1</span> 关于网页布局的流行设计知识</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3"><span class="sectnum">2.1.1</span> 什么是响应式页面设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4"><span class="sectnum">2.1.2</span> 什么是自适应网页设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5"><span class="sectnum">2.1.3</span> 什么是媒体查询</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6"><span class="sectnum">2.2</span> 什么是自适应页面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7"><span class="sectnum">2.3</span> 如何实现网页的自适应效果</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#media-query"><span class="sectnum">2.3.1</span> 了解媒体查询 (Media Query)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#viewport"><span class="sectnum">2.3.2</span> 加入viewport元标签</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#media-ex100"><span class="sectnum">2.3.3</span> [示例 media-ex100] 演示使用媒体查询</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8"><span class="sectnum">2.4</span> 常见的自适应页面布局模式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mostly-fluid"><span class="sectnum">2.4.1</span> Mostly fluid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#column-drop"><span class="sectnum">2.4.2</span> Column drop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#layout-shifter"><span class="sectnum">2.4.3</span> Layout shifter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tiny-tweaks"><span class="sectnum">2.4.4</span> Tiny tweaks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#off-canvas"><span class="sectnum">2.4.5</span> Off canvas</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id9"><span class="sectnum">2.5</span> 参考链接</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bootstrap.html"><span class="sectnum">3</span> Bootstrap学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javaScript.html"><span class="sectnum">4</span> Javascript基础学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="async.html"><span class="sectnum">5</span> Javascript异步编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html"><span class="sectnum">6</span> 学习与HTTP交互</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html"><span class="sectnum">7</span> 学习如何测试</a></li>
+</ul>
+<p class="caption"><span class="caption-text">附录：</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="github.html"><span class="sectnum">8</span> 学习GitHub操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nodejs.html"><span class="sectnum">9</span> Node.js 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue.html"><span class="sectnum">10</span> 错误集锦</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CVI Talent</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">首页</a> &raquo;</li>
+        
+      <li><span class="sectnum">2</span> 学习自适应网页设计</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        <a href="https://pages.github.ibm.com/lanzejun/talent/index.html" class="fa fa-github"> CVITube</a>
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="sectnum">2</span> 学习自适应网页设计<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>起初，在传统的Web开发设计中，网页设计者会将网页设计为固定宽度。这是因为早期电脑显示器种类并不多，分辨率和屏幕比例较为统一 (常见为800x600或者1024x768)。而随着宽屏显示器、各种尺寸的笔记本以及移动智能设备的普及，目前市面中常见的屏幕尺寸大小不一，分辨率多种多样。</p>
+<p>所以，在这样的背景下，如何让网站的内容能够自动适应多种屏幕尺寸，在不同的终端设备上都能良好地对网站内容进行重新排版，就成为了一种强烈的需求。这也是自适应页面 (也可以称之为响应式布局) 产生的背景。</p>
+<div class="section" id="id2">
+<h2><span class="sectnum">2.1</span> 关于网页布局的流行设计知识<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>响应式网页设计（RWD，Responsive Web Design）和自适应网页设计（AWD，Adaptive Web Design）在现阶段非常流行，它们是网页设计中的两种模式，简称：R+A模式，下面分别对它们进行介绍。</p>
+<div class="section" id="id3">
+<h3><span class="sectnum">2.1.1</span> 什么是响应式页面设计<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>响应式网页（RWD，Responsive Web Design）就是一个网站能够针对多个终端提供不同的显示样式，而不是针对每个终端制作一个特定的版本。
+响应式页面就是随着设备属性（如宽高）的变化，网页的布局也随着变化。响应式页面用到的主要技术就是CSS，如：</p>
+<ol class="arabic simple">
+<li><p>多使用 max-width、min-width等属性，不硬编码具体的宽度；</p></li>
+<li><p>使用媒体查询(Media Query)来响应不同屏幕尺寸和分辨率的设备；</p></li>
+<li><p>多使用流式网格布局。流式布局就是页面元素的宽度按照屏幕进行适配调整。简单来说，就是 HTML 页面中的元素会根据分辨率的不同而变化大小，但位置并不会有任何变化；</p></li>
+<li><p>多使用相对单位替换绝对单位，如设置宽度可以使用百分值替代px像素值；</p></li>
+<li><p>使用能够适应比例变化的图片，即图片可伸缩，不固定宽高；</p></li>
+</ol>
+<p>响应式网页带来的优势就是比较灵活，一个页面适应不同终端。从运营和维护的便利性考虑，当网站交互少，功能少，升级不频繁时，建议使用响应式页面设计。如介绍公司的产品，宣传展示之类的网站。</p>
+</div>
+<div class="section" id="id4">
+<h3><span class="sectnum">2.1.2</span> 什么是自适应网页设计<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>自适应网页（AWD，Adaptive Web Design）是指页面内容自动适应屏幕大小，指的是页面宽度不固定。自适应页面可以是响应式的，也可以不是响应式的。目前，各种新型设备(手机/平板电脑)、平台和浏览器都需要兼容显示WEB应用程序，需要一种设计兼容所有的设备。自适应网页设计应运而生，它提供不同的布局来为不同的设备提供最好的体验，它代表了一种必然的设计趋势。实现自适应一般是采用如下技术：</p>
+<ol class="arabic simple">
+<li><p>使用媒体查询(Media Query)技术，但是仅是针对有限的设备进行设计；</p></li>
+<li><p>用 Javascript 来操作 HTML 内容；</p></li>
+<li><p>在服务器端操作 HTML 内容（比如为移动端减少内容，为桌面端提供更多内容）。</p></li>
+</ol>
+<p>自适应网页的理念就是针对不同的设备进行一对一的设计，在不同的终端可能会有不一样的代码结构和体验。从页面个性化多功能方面考虑，当网站功能功能复杂、用户交互频繁、用户量较大，自适应网页设计更合适。如电商类网站，WEB桌面端和移动端为了提供较好的用户体验，针对显示的内容会有取舍。</p>
+</div>
+<div class="section" id="id5">
+<h3><span class="sectnum">2.1.3</span> 什么是媒体查询<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>媒体查询是CSS3中引入的一个新特性，它可以使用自定义的“&#64;media”规则，根据一定条件来加载一段特定的CSS样式。
+媒体查询可针对不同设备场景使用不同CSS，媒体查询技术的原理：通过匹配不同屏幕设备的特征，让不同特征下的CSS代码生效。</p>
+<p>下面示例代码演示媒体查询的用法：</p>
+<blockquote>
+<div><div class="highlight-HTML notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>媒体查询示例<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+    <span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">50em</span><span class="o">)</span><span class="p">{</span>
+      <span class="nt">body</span> <span class="p">{</span>
+        <span class="k">background-color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">50em</span><span class="o">)</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">80em</span><span class="o">)</span> <span class="p">{</span>
+      <span class="nt">body</span> <span class="p">{</span>
+        <span class="k">background-color</span><span class="p">:</span> <span class="kc">blue</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>在上面的示例中，完成了以下内容：</p>
+<ol class="arabic simple">
+<li><p>CSS样式“background-color”仅在满足“&#64;media”条件时加载；</p></li>
+<li><p>当屏幕宽度值达到最大50em时，即小于或者等于50em时，页面背景色设置为红色；</p></li>
+<li><p>当屏幕宽度值位于50em到80em之间时，页面背景色设置为蓝色；</p></li>
+</ol>
+<p>上面示例中的max-width和min-width称为媒体匹配特征（Media Feature），常见的媒体匹配特征如下表所示：</p>
+<blockquote>
+<div><table class="colwidths-given docutils align-default" id="id10">
+<caption><span class="caption-text">常见的媒体匹配特征</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>特征名称</p></td>
+<td><p>说明</p></td>
+</tr>
+<tr class="row-even"><td><p>max-width</p></td>
+<td><p>设置屏的最大宽度，表示屏宽小于或等于它的值时生效</p></td>
+</tr>
+<tr class="row-odd"><td><p>min-width</p></td>
+<td><p>设置屏的最小宽度，表示屏宽大于或等于它的值时生效</p></td>
+</tr>
+<tr class="row-even"><td><p>width/height</p></td>
+<td><p>浏览器的宽度和高度</p></td>
+</tr>
+<tr class="row-odd"><td><p>device-width/device-height</p></td>
+<td><p>移动设备屏幕的宽度和高度</p></td>
+</tr>
+<tr class="row-even"><td><p>resolution</p></td>
+<td><p>设备分辨率</p></td>
+</tr>
+<tr class="row-odd"><td><p>orientation（方向）</p></td>
+<td><p>它有两个值：portrait(纵向)和landscape(横向)</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>本示例仅是带来读者了解媒体查询。“&#64;media”语法中的“and”称为查询操作符，max-width和min-width的值表示设置屏幕的断点，通过媒体查询的语法，我们可以构造复杂的使用场景。有关媒体查询的详细语法，读者可以自行查阅相关文档。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><span class="sectnum">2.2</span> 什么是自适应页面<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>请移步下列网站，将浏览器窗口宽度自由缩小放大，观察网页内元素布局的变化。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://mediaqueri.es/">https://mediaqueri.es/</a></p></li>
+<li><p><a class="reference external" href="https://segmentfault.com/">https://segmentfault.com/</a></p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2><span class="sectnum">2.3</span> 如何实现网页的自适应效果<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="media-query">
+<h3><span class="sectnum">2.3.1</span> 了解媒体查询 (Media Query)<a class="headerlink" href="#media-query" title="Permalink to this headline">¶</a></h3>
+<p>媒体查询是CSS3中引入的一个新特性，它可以使用自定义的`&#64;media`规则，根据一定条件来加载一段特定的CSS样式。</p>
+<p>实例: 如果浏览器宽度小于等于600px，则将屏幕背景色设成浅蓝色。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+</pre></div>
+</div>
+<p>上面例子中的CSS样式`background-color`仅在满足`&#64;media`条件 (即屏幕宽度小于等于600px) 时加载。</p>
+</div>
+<div class="section" id="viewport">
+<h3><span class="sectnum">2.3.2</span> 加入viewport元标签<a class="headerlink" href="#viewport" title="Permalink to this headline">¶</a></h3>
+<p>在移动浏览器中使用viewport元标签控制布局。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1&quot;</span> <span class="p">/&gt;</span>
+</pre></div>
+</div>
+<p>此行代码将网页的默认宽度设置为屏幕设备宽度，且缩放比例为1，也就是将页面设置为100%屏幕宽度。</p>
+</div>
+<div class="section" id="media-ex100">
+<h3><span class="sectnum">2.3.3</span> [示例 media-ex100] 演示使用媒体查询<a class="headerlink" href="#media-ex100" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>新建index.html文件，并将其更改为以下内容：</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-HTML notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;ie=edge&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Viewport<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+    <span class="nt">body</span> <span class="p">{</span>
+      <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="p">.</span><span class="nc">c1</span><span class="o">,</span>
+    <span class="p">.</span><span class="nc">c2</span><span class="o">,</span>
+    <span class="p">.</span><span class="nc">c3</span> <span class="p">{</span>
+      <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">vh</span><span class="p">;</span>
+      <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">vw</span><span class="p">;</span>
+      <span class="k">font-size</span><span class="p">:</span> <span class="mi">12</span><span class="kt">em</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
+      <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+      <span class="k">flex-wrap</span><span class="p">:</span> <span class="kc">wrap</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="p">.</span><span class="nc">c1</span> <span class="p">{</span>
+      <span class="k">background-color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">.</span><span class="nc">c2</span> <span class="p">{</span>
+      <span class="k">background-color</span><span class="p">:</span> <span class="kc">yellow</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">.</span><span class="nc">c3</span> <span class="p">{</span>
+      <span class="k">background-color</span><span class="p">:</span> <span class="kc">blue</span><span class="p">;</span>
+    <span class="p">}</span>
+
+
+    <span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">600px</span><span class="o">)</span> <span class="p">{</span>
+      <span class="p">.</span><span class="nc">c1</span> <span class="p">{</span>
+        <span class="k">width</span><span class="p">:</span> <span class="mi">60</span><span class="kt">%</span><span class="p">;</span>
+        <span class="k">order</span><span class="p">:</span> <span class="mi">2</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="p">.</span><span class="nc">c2</span> <span class="p">{</span>
+        <span class="k">width</span><span class="p">:</span> <span class="mi">40</span><span class="kt">%</span><span class="p">;</span>
+        <span class="k">order</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="p">.</span><span class="nc">c3</span> <span class="p">{</span>
+        <span class="k">order</span><span class="p">:</span> <span class="mi">3</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">800px</span><span class="o">)</span> <span class="p">{</span>
+      <span class="p">.</span><span class="nc">c1</span> <span class="p">{</span>
+        <span class="k">width</span><span class="p">:</span> <span class="mi">60</span><span class="kt">%</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="p">.</span><span class="nc">c2</span><span class="o">,</span>
+      <span class="p">.</span><span class="nc">c3</span> <span class="p">{</span>
+        <span class="k">width</span><span class="p">:</span> <span class="mi">20</span><span class="kt">%</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;c1&quot;</span><span class="p">&gt;</span>c1<span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;c2&quot;</span><span class="p">&gt;</span>c2<span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;c3&quot;</span><span class="p">&gt;</span>c3<span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>用浏览器打开index.html文件，观察页面。</p></li>
+</ol>
+<p>在上面的示例media-ex100中，完成了以下内容：</p>
+<ol class="arabic simple">
+<li><p>设置了media的2个不同的尺寸；</p></li>
+<li><p>样式container里面使用了Flex弹性容器布局（display: flex;），使3个section在同一行中显示。</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><span class="sectnum">2.4</span> 常见的自适应页面布局模式<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mostly-fluid">
+<h3><span class="sectnum">2.4.1</span> Mostly fluid<a class="headerlink" href="#mostly-fluid" title="Permalink to this headline">¶</a></h3>
+<p>Mostly fluid 模式主要由流动网格组成。在较大和中等屏幕上，它通常保持相同大小，只在更宽的屏幕上调整边距。</p>
+<p>在较小屏幕上，流动网格使主内容自动重排，同时各列垂直排列。 此模式的一个主要优点是，在小屏幕和大屏幕之间通常只需要一个视图断点。</p>
+<a class="reference internal image-reference" href="../_images/mostly-fluid.svg"><img alt="../_images/mostly-fluid.svg" src="../_images/mostly-fluid.svg" width="800px" /></a>
+</div>
+<div class="section" id="column-drop">
+<h3><span class="sectnum">2.4.2</span> Column drop<a class="headerlink" href="#column-drop" title="Permalink to this headline">¶</a></h3>
+<p>对于全宽度的多列布局，当窗口宽度太窄不能容纳内容时，Column drop 就将各列垂直排列。</p>
+<p>最终使所有列都垂直排列。为此布局模式选择视图断点时要依据内容，并随不同设计而改变。</p>
+<a class="reference internal image-reference" href="../_images/column-drop.svg"><img alt="../_images/column-drop.svg" src="../_images/column-drop.svg" width="800px" /></a>
+</div>
+<div class="section" id="layout-shifter">
+<h3><span class="sectnum">2.4.3</span> Layout shifter<a class="headerlink" href="#layout-shifter" title="Permalink to this headline">¶</a></h3>
+<p>Layout shifter 模式是自适应性最强的模式，在多种屏幕宽度上采用多个断点。</p>
+<p>此布局的关键是内容移动的方式，而不是自动重排并放到其他列下面。 由于每个主要视图断点之间的显著差异，其维护更复杂，并且可能涉及元素内的更改，而不只是总体内容布局的更改。</p>
+<a class="reference internal image-reference" href="../_images/layout-shifter.svg"><img alt="../_images/layout-shifter.svg" src="../_images/layout-shifter.svg" width="800px" /></a>
+</div>
+<div class="section" id="tiny-tweaks">
+<h3><span class="sectnum">2.4.4</span> Tiny tweaks<a class="headerlink" href="#tiny-tweaks" title="Permalink to this headline">¶</a></h3>
+<p>Tiny tweaks 只对布局进行细微的更改，例如调整字体大小、调整图像大小或对内容进行极其细微的移动。</p>
+<p>它在单列布局上表现很好，例如单页面线性网站和文本为主的文章。</p>
+<a class="reference internal image-reference" href="../_images/tiny-tweaks.svg"><img alt="../_images/tiny-tweaks.svg" src="../_images/tiny-tweaks.svg" width="800px" /></a>
+</div>
+<div class="section" id="off-canvas">
+<h3><span class="sectnum">2.4.5</span> Off canvas<a class="headerlink" href="#off-canvas" title="Permalink to this headline">¶</a></h3>
+<p>Off canvas 模式不是垂直排列内容，而是将不常用的内容（可能是导航或应用的菜单）放在屏幕之外，只在屏幕足够大时才显示。在较小屏幕上，只需点击就能显示内容。</p>
+<a class="reference internal image-reference" href="../_images/off-canvas.svg"><img alt="../_images/off-canvas.svg" src="../_images/off-canvas.svg" width="800px" /></a>
+</div>
+</div>
+<div class="section" id="id9">
+<h2><span class="sectnum">2.5</span> 参考链接<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://www.w3schools.com/css/css_rwd_mediaqueries.asp">https://www.w3schools.com/css/css_rwd_mediaqueries.asp</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/web/fundamentals/design-and-ux/responsive/patterns?hl=zh-cn">https://developers.google.com/web/fundamentals/design-and-ux/responsive/patterns?hl=zh-cn</a></p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bootstrap.html" class="btn btn-neutral float-right" title="3 Bootstrap学习" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="h5.html" class="btn btn-neutral float-left" title="1 使用 HTML5 和 CSS3 设计个人页面" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright CVI Talent
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

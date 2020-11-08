@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7 学习如何测试</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8 学习GitHub操作" href="github.html" />
+    <link rel="prev" title="6 学习与HTTP交互" href="fetch.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/front+end+dev.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">培训资料：</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="first.html">教学计划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h5.html"><span class="sectnum">1</span> 使用 HTML5 和 CSS3 设计个人页面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="media.html"><span class="sectnum">2</span> 学习自适应网页设计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bootstrap.html"><span class="sectnum">3</span> Bootstrap学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javaScript.html"><span class="sectnum">4</span> Javascript基础学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="async.html"><span class="sectnum">5</span> Javascript异步编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html"><span class="sectnum">6</span> 学习与HTTP交互</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><span class="sectnum">7</span> 学习如何测试</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mocha"><span class="sectnum">7.1</span> mocha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2"><span class="sectnum">7.2</span> 课程内容</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3"><span class="sectnum">7.2.1</span> mocha 安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chai"><span class="sectnum">7.2.2</span> 断言库chai的安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4"><span class="sectnum">7.2.3</span> 编写测试脚本</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">附录：</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="github.html"><span class="sectnum">8</span> 学习GitHub操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nodejs.html"><span class="sectnum">9</span> Node.js 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue.html"><span class="sectnum">10</span> 错误集锦</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CVI Talent</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">首页</a> &raquo;</li>
+        
+      <li><span class="sectnum">7</span> 学习如何测试</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        <a href="https://pages.github.ibm.com/lanzejun/talent/index.html" class="fa fa-github"> CVITube</a>
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="sectnum">7</span> 学习如何测试<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mocha">
+<h2><span class="sectnum">7.1</span> mocha<a class="headerlink" href="#mocha" title="Permalink to this headline">¶</a></h2>
+<p>现在最流行的JavaScript测试框架之一，在浏览器和Node环境都可以使用。</p>
+<p>所谓”测试框架”，就是运行测试的工具。通过它，可以为JavaScript应用添加测试，从而保证代码的质量。</p>
+</div>
+<div class="section" id="id2">
+<h2><span class="sectnum">7.2</span> 课程内容<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3><span class="sectnum">7.2.1</span> mocha 安装<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">git</span> <span class="nx">clone</span> <span class="nx">https</span><span class="o">:</span><span class="c1">//github.com/ruanyf/mocha-demos.git</span>
+<span class="nx">cd</span> <span class="nx">mocha</span><span class="o">-</span><span class="nx">demos</span>
+<span class="nx">npm</span> <span class="nx">install</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="chai">
+<h3><span class="sectnum">7.2.2</span> 断言库chai的安装<a class="headerlink" href="#chai" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">npm</span> <span class="nx">install</span> <span class="nx">chai</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3><span class="sectnum">7.2.3</span> 编写测试脚本<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>在单元测试前我们需要：一个js文件和一个test.js文件</p>
+<ul class="simple">
+<li><p>add.js</p></li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">//add.js</span>
+<span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">x</span><span class="o">+</span><span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">add</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>add.test.js</p></li>
+</ul>
+<p>测试脚本中应包括一个或多个 describe块，每个describe块应该包括一个或多个it块。
+describe块称为“测试套件”，表示一组相关的测试，他是一个函数，第一个参数是测试套件的名称（“加法函数的测试”），第二个参数是一个实际执行的函数。
+it块称为“测试用例”，表示一个单独的测试，是测试的最小单位。它也是一个函数，第一个参数是测试用例的名称（“1加1应该等于2”），第二个参数是一个实际执行的函数。
+执行该测试脚本时使用mocha add.test.js即可。add.test.js为你自己的测试脚本</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">//add.test.js</span>
+<span class="kd">var</span> <span class="nx">add</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./add.js&#39;</span><span class="p">);</span>                    <span class="c1">//将待测试文件引入</span>
+<span class="kd">var</span> <span class="nx">expect</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;chai&#39;</span><span class="p">).</span><span class="nx">expect</span><span class="p">;</span>              <span class="c1">//引入断言库，指定使用它的expect断言风格</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;加法函数测试&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>              <span class="c1">//测试套件</span>
+    <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;1加1应该等于2&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>               <span class="c1">//测试用例</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>        <span class="c1">//断言</span>
+    <span class="p">})</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<ul>
+<li><p>cd进入测试文件对应文件夹，输入命令 mocha add.test.js</p></li>
+<li><dl class="simple">
+<dt>执行所有测试脚本</dt><dd><p>一般来说，我们的测试脚本都会放在test下，所以mocha命令会执行test文件夹下的测试脚本，但是若test下有子文件夹，子文件夹下存在测试脚本的话，只使用mocha就不能全部执行了。这时需要使用mocha –recursive来执行test文件夹下所有测试脚本。</p>
+</dd>
+</dl>
+</li>
+<li><p>执行某一类测试脚本</p>
+<blockquote>
+<div><p>mocha <code class="docutils literal notranslate"><span class="pre">test/**/*.js</span></code> 该命令即是执行test下所有文件夹下的.js文件</p>
+</div></blockquote>
+</li>
+<li><p>帮助提示</p>
+<blockquote>
+<div><p>mocha –h或者mocha –help可以看到所有的参数提示，在使用时可参考使用</p>
+</div></blockquote>
+</li>
+<li><dl class="simple">
+<dt>超时设置</dt><dd><p>若运行时间过长，则可以使用-t 重置超时参数。命令为mocha -t 5000 timeout.text.js
+-s或-slow可设置超过该时间执行的部分高亮显示。命令为mocha -t 5000 -s 1000 timeout.test.js</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>生成报表及网页显示</dt><dd><p>报表展示：mocha –recursive -R markdown &gt; spec.md
+网页展示：mocha –recursive -R doc &gt;spec.html</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="github.html" class="btn btn-neutral float-right" title="8 学习GitHub操作" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fetch.html" class="btn btn-neutral float-left" title="6 学习与HTTP交互" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright CVI Talent
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

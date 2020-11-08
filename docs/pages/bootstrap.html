@@ -1,0 +1,1386 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3 Bootstrap学习</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4 Javascript基础学习" href="javaScript.html" />
+    <link rel="prev" title="2 学习自适应网页设计" href="media.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/front+end+dev.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">培训资料：</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="first.html">教学计划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h5.html"><span class="sectnum">1</span> 使用 HTML5 和 CSS3 设计个人页面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="media.html"><span class="sectnum">2</span> 学习自适应网页设计</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><span class="sectnum">3</span> Bootstrap学习</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1"><span class="sectnum">3.1</span> Bootstrap 环境搭建</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2"><span class="sectnum">3.2</span> 学习Bootstrap的公共样式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3"><span class="sectnum">3.2.1</span> 学习文本处理的样式</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4"><span class="sectnum">3.2.1.1</span> 文本的对齐方式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5"><span class="sectnum">3.2.1.2</span> 文本溢出换行的样式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6"><span class="sectnum">3.2.1.3</span> 字母大小写转换的样式</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#marginpadding"><span class="sectnum">3.2.2</span> 简化Margin与Padding的间距处理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flex"><span class="sectnum">3.2.3</span> 掌握Flex弹性布局</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id7"><span class="sectnum">3.3</span> 学习Bootstrap的布局</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#container"><span class="sectnum">3.3.1</span> Container容器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8"><span class="sectnum">3.3.2</span> 响应式栅格系统</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9"><span class="sectnum">3.3.2.1</span> 列宽布局</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10"><span class="sectnum">3.3.2.2</span> 垂直和水平对齐</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bootstrap-ex100-bootstrap"><span class="sectnum">3.3.3</span> [示例 bootstrap-ex100] bootstrap的响应式栅格系统</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id11"><span class="sectnum">3.4</span> 学习Bootstrap的组件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#buttons"><span class="sectnum">3.4.1</span> 按钮Buttons</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id12"><span class="sectnum">3.4.1.1</span> 大小</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13"><span class="sectnum">3.4.1.2</span> 启用状态</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14"><span class="sectnum">3.4.1.3</span> 停用状态</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#carousel"><span class="sectnum">3.4.2</span> 轮播Carousel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id15"><span class="sectnum">3.4.2.1</span> 包含控制项</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16"><span class="sectnum">3.4.2.2</span> 包含指示器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17"><span class="sectnum">3.4.2.3</span> 包含字幕</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#jumbotron"><span class="sectnum">3.4.3</span> 超大屏幕Jumbotron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navs"><span class="sectnum">3.4.4</span> 导航Navs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id18"><span class="sectnum">3.4.4.1</span> 基础样式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tab"><span class="sectnum">3.4.4.2</span> 标签形tab导航</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pills"><span class="sectnum">3.4.4.3</span> 胶囊形(pills)导航</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19"><span class="sectnum">3.4.4.4</span> 自适应导航</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id20"><span class="sectnum">3.4.4.5</span> 下拉菜单</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#navbar"><span class="sectnum">3.4.5</span> 导航条Navbar</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id21"><span class="sectnum">3.4.5.1</span> 支持的内容</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id22"><span class="sectnum">3.4.5.2</span> 品牌</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id23"><span class="sectnum">3.4.5.3</span> 导航</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id24"><span class="sectnum">3.4.5.4</span> 表单</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id25"><span class="sectnum">3.4.5.5</span> 配色方案</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#icos"><span class="sectnum">3.4.6</span> 图标Icos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id26"><span class="sectnum">3.5</span> 参考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="javaScript.html"><span class="sectnum">4</span> Javascript基础学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="async.html"><span class="sectnum">5</span> Javascript异步编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html"><span class="sectnum">6</span> 学习与HTTP交互</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html"><span class="sectnum">7</span> 学习如何测试</a></li>
+</ul>
+<p class="caption"><span class="caption-text">附录：</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="github.html"><span class="sectnum">8</span> 学习GitHub操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nodejs.html"><span class="sectnum">9</span> Node.js 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue.html"><span class="sectnum">10</span> 错误集锦</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CVI Talent</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">首页</a> &raquo;</li>
+        
+      <li><span class="sectnum">3</span> Bootstrap学习</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        <a href="https://pages.github.ibm.com/lanzejun/talent/index.html" class="fa fa-github"> CVITube</a>
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bootstrap">
+<h1><span class="sectnum">3</span> Bootstrap学习<a class="headerlink" href="#bootstrap" title="Permalink to this headline">¶</a></h1>
+<p>Bootstrap是全球最受欢迎的前端组件库，用于开发响应式布局、移动设备优先的WEB项目。</p>
+<p>Bootstrap是一个用于 HTML、CSS 和 JavaScript 开发的开源工具包。它提供了很多功能，帮助开发者快速地开发出产品原型或构建整个App应用。Bootstrap的内容除了组件库外，还有页面布局和公共样式，这些功能针对开发者来讲，可以一站式解决WEB页面开发的实际问题。下面分别介绍下这些内容。</p>
+<div class="section" id="id1">
+<h2><span class="sectnum">3.1</span> Bootstrap 环境搭建<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Hello, World!模板，详细见：<a class="reference external" href="https://code.z01.com/v4/docs/">https://code.z01.com/v4/docs/</a></p>
+</div>
+<div class="section" id="id2">
+<h2><span class="sectnum">3.2</span> 学习Bootstrap的公共样式<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Bootstrap的公共样式适用与页面中的任何元素，大到页面布局，小到某一个细节元素。
+Bootstrap中内置了很多公共样式，这些公共样式其实就是原子样式的合集，方便开发者直接拿来适用。公共样式里面的包含的内容有很多，如：针对元素边框的样式、文字颜色的样式、文本的样式，元素规格的样式等，本书选取其中部分内容做介绍。</p>
+<div class="section" id="id3">
+<h3><span class="sectnum">3.2.1</span> 学习文本处理的样式<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Bootstrap的文本公共样式主要是处理文本对齐方式、文本溢出换行、字母大小写转换、字体粗细和斜体效果、重置文本颜色和文字装饰等效果的样式。下面介绍其中的几种。</p>
+<div class="section" id="id4">
+<h4><span class="sectnum">3.2.1.1</span> 文本的对齐方式<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>关于文本的对齐方式，示例代码如下：</p>
+<blockquote>
+<div><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-justify&quot;</span><span class="p">&gt;</span>这个样式表示将文本重新对齐到组件：Bootstrap是一个用于 HTML、CSS 和 JavaScript
+    开发的开源工具包。它提供了很多功能，帮助开发者快速地开发出产品原型或构建整个App应用。
+    Bootstrap的内容除了组件库外，还有页面布局和公共样式，这些功能针对开发者来讲，
+    可以一站式解决WEB页面开发的实际问题。<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-left&quot;</span><span class="p">&gt;</span>在所有视窗尺寸上的左对齐文本。<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-center&quot;</span><span class="p">&gt;</span>在所有视窗尺寸上居中对齐文本。<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-right&quot;</span><span class="p">&gt;</span>在所有视窗尺寸上的右对齐文本。<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-sm-left&quot;</span><span class="p">&gt;</span>在SM（小尺寸）或更宽的视窗上左对齐文字。<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-md-left&quot;</span><span class="p">&gt;</span>在MD（中型）或更大尺寸的视窗上左对齐文字。<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-lg-left&quot;</span><span class="p">&gt;</span>LG（大）或更宽的视窗上的左对齐文本。<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-xl-left&quot;</span><span class="p">&gt;</span>在XL（特大号）或更大尺寸的视窗上的左对齐文本。<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="id5">
+<h4><span class="sectnum">3.2.1.2</span> 文本溢出换行的样式<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>文本长度大于所在的组件宽度时，可以使用溢出换行的样式。示例代码如下：</p>
+<blockquote>
+<div><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;badge badge-primary text-wrap&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width: 6rem;&quot;</span><span class="p">&gt;</span>
+    这段文本换行的效果
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>上述代码显示的效果如图19-1所示：</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/Figure19-1.png"><img alt="../_images/Figure19-1.png" src="../_images/Figure19-1.png" style="width: 150px;" /></a>
+<p>图19-1 文本换行的样式</p>
+</div></blockquote>
+</div>
+<div class="section" id="id6">
+<h4><span class="sectnum">3.2.1.3</span> 字母大小写转换的样式<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>字母大小写转换的样式可以使英文（不支持中文）文本在大小写之间转换。示例代码如下：</p>
+<blockquote>
+<div><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- 页面显示：lowercased text. --&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-lowercase&quot;</span><span class="p">&gt;</span>Lowercased text.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- 页面显示：UPPERCASED TEXT. --&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-uppercase&quot;</span><span class="p">&gt;</span>Uppercased text.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- 页面显示：CapiTaliZed Text. --&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-capitalize&quot;</span><span class="p">&gt;</span>CapiTaliZed text.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>text-capitalize样式的效果是使每个单词的第一个字母转为大写，而其它字母不受影响。</p>
+</div>
+</div>
+<div class="section" id="marginpadding">
+<h3><span class="sectnum">3.2.2</span> 简化Margin与Padding的间距处理<a class="headerlink" href="#marginpadding" title="Permalink to this headline">¶</a></h3>
+<p>Bootstrap中提供了一组缩写CSS的规范，对元素的 margin 或 padding 属性里的单个属性项、所有属性项以及垂直、水平等属性项进行赋值，距离单位是在采用 0.25rem 到 3rem之间的数字。具体的规则如下：</p>
+<p>针对不同的屏幕宽度，分为两类表示法。
+对于xs屏幕，使用固定格式{property}{sides}-{size} 命名CSS，对于 sm、md、lg、xl 大小的屏幕，使用 {property}{sides}-{breakpoint}-{size}格式命名CSS。</p>
+<ul class="simple">
+<li><p>property的值是“margin”或者“padding”，二选一；规定采用简写的方式：“m”表示“margin”，“p”表示“padding”;</p></li>
+<li><p>sides的值表示方向，如：top、bottom、left和right。同样的，规定采用简写的方式：取各个单词的首字母，如果同时表示left和right，用”横向”单词首字母“x”表示，同理，同时表示top和bottom，用”纵向”单词的首字母“y”表示；sides的值也可以不写，留空，表示4个方向；</p></li>
+<li><p>size的值范围为数字0到5整数，还可以是“auto”值，表示按浏览器默认值自由展现；</p></li>
+<li><p>breakpoint取值为sm、md、lg、xl和xs的一种。</p></li>
+</ul>
+<p>下面通过代码例举说明：</p>
+<blockquote>
+<div><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Margin与Padding<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;ml-3 text-white bg-primary&quot;</span><span class="p">&gt;</span>1、P元素距离左边3个空位置开始<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;ml-1 text-white bg-primary&quot;</span><span class="p">&gt;</span>2、P元素距离左边1个空位置开始<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mr-3 text-white bg-primary&quot;</span><span class="p">&gt;</span>3、P元素距离右边3个空位置截止<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mx-auto text-white bg-primary&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width: 200px;&quot;</span><span class="p">&gt;</span>4、P元素居中<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mx-auto text-white bg-primary&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width: 200px;&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-center&quot;</span><span class="p">&gt;</span>5、文字居中<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>运行上述代码后，显示的效果如图19-2所示：</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/Figure19-2.png"><img alt="../_images/Figure19-2.png" src="../_images/Figure19-2.png" style="width: 600px;" /></a>
+<p>图19-2 Margin与Padding</p>
+</div></blockquote>
+</div>
+<div class="section" id="flex">
+<h3><span class="sectnum">3.2.3</span> 掌握Flex弹性布局<a class="headerlink" href="#flex" title="Permalink to this headline">¶</a></h3>
+<p>Flex是Flexible Box的缩写，意为”弹性布局”，用来提供一个更加有效的方式实现响应式布局。任何一个容器都可以指定为Flex布局。</p>
+<p>采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。</p>
+<p>我们先来了解下一个简单的Flex弹性布局，请看如下的示例代码：</p>
+<blockquote>
+<div><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container mt-3&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Flex<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>使用 d-flex 类创建一个弹性盒子容器，并设置三个弹性子元素：<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-flex p-3 bg-secondary text-white&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 bg-info&quot;</span><span class="p">&gt;</span>Flex item 1<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 bg-warning&quot;</span><span class="p">&gt;</span>Flex item 2<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 bg-primary&quot;</span><span class="p">&gt;</span>Flex item 3<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>上述代码中，父&lt;div&gt;的样式“d-flex”就是我们上面介绍的Flex容器样式，在它下面有3个子&lt;div&gt;标签，它们代表着容器成员，称为Flex子元素。</p>
+<p>Flex容器样式的值有两种，一种是“d-flex”，另一种是“d-inline-flex”，俗称“行内 Flex”。</p>
+<p>我们将“d-flex”和“d-inline-flex”样式放在一起对比，这样从视觉上可以很容易的区别它们的差异。复制一份上述代码，新的代码中，将Flex容器样式值换成“d-inline-flex”样式，运行上述代码后，显示的效果如图19-3所示：</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/Figure19-3.png"><img alt="../_images/Figure19-3.png" src="../_images/Figure19-3.png" style="width: 600px;" /></a>
+<p>图19-3 Flex容器样式</p>
+</div></blockquote>
+<p>可以根据不同的设备，设置Flex布局样式，从而实现页面响应式布局。使用 .d-{breakpoint}-flex 或者 .d-{breakpoint}-inline-flex 格式来表达其CSS样式。其中{breakpoint}代表着设备型号，分别对应sm（小型设备）、md（中型设备），lg（大型设备）和 xl（超大型设备）。</p>
+<p>确定了设备后，接着可以在容器上设置样式，来限制容器成员的布局方式，请看如下的示例代码：</p>
+<blockquote>
+<div><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container mt-3&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>水平方向<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>使用 .flex-row 类设置弹性子元素水平显示：<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-flex flex-row bg-secondary mb-3&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 bg-info&quot;</span><span class="p">&gt;</span>Flex item 1<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 bg-warning&quot;</span><span class="p">&gt;</span>Flex item 2<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 bg-primary&quot;</span><span class="p">&gt;</span>Flex item 3<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>.flex-row-reverse 设置右对齐方向:<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-flex flex-row-reverse bg-secondary&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 bg-info&quot;</span><span class="p">&gt;</span>Flex item 1<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 bg-warning&quot;</span><span class="p">&gt;</span>Flex item 2<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 bg-primary&quot;</span><span class="p">&gt;</span>Flex item 3<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>上述代码中，分别使用了 .flex-row 和 .flex-row-reverse 类设置弹性子元素水平显示方式。运行上述代码后，显示的效果如图19-4所示：</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/Figure19-4.png"><img alt="../_images/Figure19-4.png" src="../_images/Figure19-4.png" style="width: 600px;" /></a>
+<p>图19-4 Flex容器样式水平方向对齐方式</p>
+</div></blockquote>
+<p>关于作用在容器上的样式有很多，下面对Flex布局样式的常见值进行归纳，便于读者分辨和理解它们的使用场景。如表19-1所示：</p>
+<blockquote>
+<div><table class="colwidths-given docutils align-default" id="id29">
+<caption><span class="caption-text">表19-1 Flex布局容器样式一览表</span><a class="headerlink" href="#id29" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 29%" />
+<col style="width: 57%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>功能</p></td>
+<td><p>样式</p></td>
+<td><p>说明</p></td>
+</tr>
+<tr class="row-even"><td><p>弹性容器</p></td>
+<td><p>.d-{breakpoint}-flex</p></td>
+<td><p>根据不同的屏幕设备创建弹性盒子容器</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>.d-{breakpoint}-inline-flex</p></td>
+<td><p>根据不同的屏幕设备创建行内弹性盒子容器</p></td>
+</tr>
+<tr class="row-even"><td><p>水平方向</p></td>
+<td><p>.flex-{breakpoint}-row</p></td>
+<td><p>根据不同的屏幕设备在水平方向显示弹性子元素</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>.flex-{breakpoint}-row-reverse</p></td>
+<td><p>根据不同的屏幕设备在水平方向显示弹性子元素，且右对齐</p></td>
+</tr>
+<tr class="row-even"><td><p>垂直方向</p></td>
+<td><p>.flex-{breakpoint}-column</p></td>
+<td><p>根据不同的屏幕设备在垂直方向显示弹性子元素</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>.flex-{breakpoint}-row-reverse</p></td>
+<td><p>根据不同的屏幕设备在水平方向显示弹性子元素，且方向相反</p></td>
+</tr>
+<tr class="row-even"><td><p>内容排列方式</p></td>
+<td><p>.justify-content-{breakpoint}-start</p></td>
+<td><p>根据不同屏幕设备在开始位置显示弹性子元素 (左对齐)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>.justify-content-{breakpoint}-end</p></td>
+<td><p>根据不同屏幕设备在尾部显示弹性子元素 (右对齐)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>.justify-content-{breakpoint}-center</p></td>
+<td><p>根据不同屏幕设备在容器中显示子元素（居中）</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>.justify-content-{breakpoint}-between</p></td>
+<td><p>根据不同屏幕设备在容器中显示子元素（两端对齐）</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>.justify-content-{breakpoint}-around</p></td>
+<td><p>根据不同屏幕设备在容器中显示子元素（间隔相等对齐）</p></td>
+</tr>
+<tr class="row-odd"><td><p>等宽</p></td>
+<td><p>.flex-{breakpoint}-fill</p></td>
+<td><p>根据不同的屏幕设备强制等宽</p></td>
+</tr>
+<tr class="row-even"><td><p>包裹</p></td>
+<td><p>.flex-{breakpoint}-nowrap</p></td>
+<td><p>不同的屏幕设备不设置包裹元素</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>.flex-{breakpoint}-wrap</p></td>
+<td><p>根据不同的屏幕设备设置包裹元素</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>.flex-{breakpoint}-wrap-reverse</p></td>
+<td><p>根据不同的屏幕设备设置扩展反转包裹元素</p></td>
+</tr>
+<tr class="row-odd"><td><p>元素对齐</p></td>
+<td><p>.align-items-{breakpoint}-start</p></td>
+<td><p>根据不同屏幕设备，让元素在头部显示在同一行</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>.align-items-{breakpoint}-end</p></td>
+<td><p>根据不同屏幕设备，让元素在尾部显示在同一行</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>.align-items-{breakpoint}-center</p></td>
+<td><p>根据不同屏幕设备，让元素在中间位置显示在同一行</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>.align-items-{breakpoint}-baseline</p></td>
+<td><p>根据不同屏幕设备，让元素在基线上显示在同一行</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>.align-items-{breakpoint}-stretch</p></td>
+<td><p>根据不同屏幕设备，让元素延展高度并显示在同一行</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>表19-1例举的样式是作用在Flex容器上的，对于它的容器子元素也有对应的样式，请看如下的示例代码：</p>
+<blockquote>
+<div><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container mt-3&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>外边距<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>.mr-auto 类可以设置子元素右外边距为 auto，.ml-auto 类可以设置子元素左外边距为 auto，<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-flex mb-3 bg-secondary&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 mr-auto bg-info&quot;</span><span class="p">&gt;</span>Flex item 1<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 bg-warning&quot;</span><span class="p">&gt;</span>Flex item 2<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 bg-primary&quot;</span><span class="p">&gt;</span>Flex item 3<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-flex mb-3 bg-secondary&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2  bg-info&quot;</span><span class="p">&gt;</span>Flex item 1<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 bg-warning&quot;</span><span class="p">&gt;</span>Flex item 2<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 ml-auto bg-primary&quot;</span><span class="p">&gt;</span>Flex item 3<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>运行上述代码后，显示的效果如图19-5所示：</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/Figure19-5.png"><img alt="../_images/Figure19-5.png" src="../_images/Figure19-5.png" style="width: 600px;" /></a>
+<p>图19-5 Flex容器子元素水平方向对齐方式</p>
+</div></blockquote>
+<p>Flex布局容器子元素样式也有多种，下表19-2汇总常见的子元素样式：</p>
+<blockquote>
+<div><table class="colwidths-given docutils align-default" id="id30">
+<caption><span class="caption-text">表19-2 Flex布局容器子元素样式一览表</span><a class="headerlink" href="#id30" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 29%" />
+<col style="width: 57%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>功能</p></td>
+<td><p>样式</p></td>
+<td><p>说明</p></td>
+</tr>
+<tr class="row-even"><td><p>扩展</p></td>
+<td><p>.flex-{breakpoint}-grow-0</p></td>
+<td><p>不同的屏幕设备不设置扩展（默认）</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>.flex-{breakpoint}-grow-1</p></td>
+<td><p>根据不同的屏幕设备设置扩展</p></td>
+</tr>
+<tr class="row-even"><td><p>收缩</p></td>
+<td><p>.flex-{breakpoint}-shrink-0</p></td>
+<td><p>不同的屏幕设备不设置收缩</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>.flex-{breakpoint}-shrink-1</p></td>
+<td><p>根据不同的屏幕设备设置收缩（默认）</p></td>
+</tr>
+<tr class="row-even"><td><p>排序</p></td>
+<td><p>.order-1 到 .order-12</p></td>
+<td><p>设置容器子元素的排序</p></td>
+</tr>
+<tr class="row-odd"><td><p>外边距</p></td>
+<td><p>.mr-auto</p></td>
+<td><p>设置容器子元素右外边距为 auto</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>.ml-auto</p></td>
+<td><p>设置容器子元素左外边距为 auto</p></td>
+</tr>
+<tr class="row-odd"><td><p>对齐</p></td>
+<td><p>.align-self-{breakpoint}-start</p></td>
+<td><p>根据不同屏幕设备，指定子元素显示在头部</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>.align-self-{breakpoint}-end</p></td>
+<td><p>根据不同屏幕设备，指定子元素显示在尾部</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>.align-self-{breakpoint}-center</p></td>
+<td><p>根据不同屏幕设备，指定子元素显示在居中位置</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>.align-self-{breakpoint}-baseline</p></td>
+<td><p>根据不同屏幕设备，指定子元素显示在基线位置</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>.align-self-{breakpoint}-stretch</p></td>
+<td><p>根据不同屏幕设备，延展子元素显示</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="admonition- admonition">
+<p class="admonition-title">提示</p>
+<p>父容器可以统一设置子元素的排列方式，子元素也可以单独设置自身的排列方式，如果两者同时设置，以子元素的设置为准。</p>
+</div>
+<p>Flex布局贯穿着Bootstrap布局的方方面面，在Bootstrap中，无论是页面、组件还是具体的元素都使用到了Flex布局。</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h2><span class="sectnum">3.3</span> 学习Bootstrap的布局<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>如果将Flex布局视为原始的基础，在它之上，Bootstrap专门设计了页面级的Container容器布局和响应式的用于排列组件的栅格系统布局，下面分别介绍它们。</p>
+<div class="section" id="container">
+<h3><span class="sectnum">3.3.1</span> Container容器<a class="headerlink" href="#container" title="Permalink to this headline">¶</a></h3>
+<p>Container容器是页面窗口级布局的元素，使用.container或.container-fluid类来定义其样式。默认的.container类样式声明是一个响应式容器，它有固定宽度和最大宽度（max-width）的设置，并支持响应式断点，一般使用它作为整个&lt;div&gt;的最外层容器：</p>
+<ul class="simple">
+<li><p>.container类样式用于声明固定宽度且居中显示的响应式容器；</p></li>
+<li><p>.container-fluid类样式用于声明全屏宽度的容器；</p></li>
+<li><p>.container-{breakpoint}类样式用于声明根据不同屏幕设备，显示固定的宽度比例的响应式容器。</p></li>
+</ul>
+<p>在前面的示例代码中，我们用到了Container容器，代码示例如下：</p>
+<blockquote>
+<div><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container mt-3&quot;</span><span class="p">&gt;</span>
+  固定宽度且居中显示的响应式容器
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container-fluid&quot;</span><span class="p">&gt;</span>
+  全屏宽度的响应式容器
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container-md&quot;</span><span class="p">&gt;</span>
+  支持响应式断点，显示中等屏幕固定的宽度比例的响应式容器
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="id8">
+<h3><span class="sectnum">3.3.2</span> 响应式栅格系统<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，随着屏幕或视区（viewport）尺寸的增加，系统会自动分为最多12列。栅格系统通过一系列的行（row）与列（col）的组合来创建页面布局。通过“行”在水平方向创建一组“列”，“列”作为“行”的直接子元素，“列”可以通过“col-n”或“col-{breakpoint}-n”来设置列宽，其中n为1到12的整数。</p>
+<div class="section" id="id9">
+<h4><span class="sectnum">3.3.2.1</span> 列宽布局<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<p>下面来演示响应式栅格系统的列宽布局，请看如下的示例代码：</p>
+<blockquote>
+<div><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container mt-3&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>等宽布局<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col bg-info&quot;</span><span class="p">&gt;</span>
+            1 of 2
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col bg-warning&quot;</span><span class="p">&gt;</span>
+            2 of 2
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row bg-secondary mt-3&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col bg-info&quot;</span><span class="p">&gt;</span>
+            1 of 3
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col bg-warning&quot;</span><span class="p">&gt;</span>
+            2 of 3
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col bg-primary&quot;</span><span class="p">&gt;</span>
+            3 of 3
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>设置一列宽度<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col bg-info&quot;</span><span class="p">&gt;</span>
+            1 of 3
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-6 bg-warning&quot;</span><span class="p">&gt;</span>
+            2 of 3 (12格中占6格，其它6格另外两列平分)
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col bg-primary&quot;</span><span class="p">&gt;</span>
+            3 of 3
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row  mt-3&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col bg-info&quot;</span><span class="p">&gt;</span>
+            1 of 3
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-5 bg-warning&quot;</span><span class="p">&gt;</span>
+            2 of 3 (12格中占5格,其它7格另外两列平分)
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col bg-primary&quot;</span><span class="p">&gt;</span>
+            3 of 3
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>可变列宽度<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row justify-content-md-center&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col col-sm-2 bg-info&quot;</span><span class="p">&gt;</span>
+            1 of 3
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-sm-auto bg-warning&quot;</span><span class="p">&gt;</span>
+            可变宽度内容自由伸张，左右宽度不变
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col col-sm-2 bg-primary&quot;</span><span class="p">&gt;</span>
+            3 of 3
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row mt-3&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col bg-info&quot;</span><span class="p">&gt;</span>
+            1 of 3
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-sm-auto bg-warning&quot;</span><span class="p">&gt;</span>
+            可变宽度内容自由伸张,左列宽度变化(右列绑定col-sm-2栅格数)
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col col-sm-2 bg-primary&quot;</span><span class="p">&gt;</span>
+            3 of 3
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>等宽多行<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col bg-info&quot;</span><span class="p">&gt;</span>col<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col bg-warning&quot;</span><span class="p">&gt;</span>col<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w-100&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col bg-primary&quot;</span><span class="p">&gt;</span>col<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col bg-secondary&quot;</span><span class="p">&gt;</span>col<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>运行上述代码后，显示的效果如图19-6所示：</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/Figure19-6.png"><img alt="../_images/Figure19-6.png" src="../_images/Figure19-6.png" style="width: 800px;" /></a>
+<p>图19-6 栅格系统的列宽布局</p>
+</div></blockquote>
+</div>
+<div class="section" id="id10">
+<h4><span class="sectnum">3.3.2.2</span> 垂直和水平对齐<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<p>下面来演示响应式栅格系统的垂直和水平对齐布局，请看如下的示例代码：</p>
+<blockquote>
+<div><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container mt-3&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>垂直对齐<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;height:10vh&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col align-self-start bg-info&quot;</span><span class="p">&gt;</span>
+            上边对齐
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col align-self-center bg-warning&quot;</span><span class="p">&gt;</span>
+            上下居中对齐
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col align-self-end bg-primary&quot;</span><span class="p">&gt;</span>
+            下边对齐
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>水平对齐<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row justify-content-start&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-4 bg-info&quot;</span><span class="p">&gt;</span>
+            左对齐
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-4 bg-warning&quot;</span><span class="p">&gt;</span>
+            左对齐
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row justify-content-center&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-4 bg-info&quot;</span><span class="p">&gt;</span>
+            居中对齐
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-4 bg-warning&quot;</span><span class="p">&gt;</span>
+            居中对齐
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row justify-content-end&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-4 bg-info&quot;</span><span class="p">&gt;</span>
+            右对齐
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-4 bg-warning&quot;</span><span class="p">&gt;</span>
+            右对齐
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row justify-content-around&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-4 bg-info&quot;</span><span class="p">&gt;</span>
+            间隔相等对齐
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-4 bg-warning&quot;</span><span class="p">&gt;</span>
+            间隔相等对齐
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row justify-content-between&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-4 bg-info&quot;</span><span class="p">&gt;</span>
+            两端对齐
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-4 bg-warning&quot;</span><span class="p">&gt;</span>
+            两端对齐
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>运行上述代码后，显示的效果如图19-7所示：</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/Figure19-7.png"><img alt="../_images/Figure19-7.png" src="../_images/Figure19-7.png" style="width: 600px;" /></a>
+<p>图19-7 栅格系统的垂直和水平对齐</p>
+</div></blockquote>
+<p>注意上述示例代码中，我们在垂直对齐中，对row的定义了一个高度样式，目的是拉开行的高度，让我们区别垂直上、垂直中和垂直下的布局效果。</p>
+</div>
+</div>
+<div class="section" id="bootstrap-ex100-bootstrap">
+<h3><span class="sectnum">3.3.3</span> [示例 bootstrap-ex100] bootstrap的响应式栅格系统<a class="headerlink" href="#bootstrap-ex100-bootstrap" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>新建index.html文件，并将其更改为以下内容：</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-HTML notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!doctype html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="c">&lt;!-- Required meta tags --&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;</span><span class="p">&gt;</span>
+
+  <span class="c">&lt;!-- Bootstrap CSS --&gt;</span>
+  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css&quot;</span>
+    <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Bootstrap响应式<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container-fluid&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>水平堆叠<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>调整浏览器窗口的大小以查看效果<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>这个例子在小型、中型、大型和超大型设备上演示了“75%/25%”的分割。在超小的设备上，它将堆叠（100%宽度）。<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container-fluid&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-sm-9 col-lg-6 bg-success&quot;</span><span class="p">&gt;</span>col-sm-9<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-sm-3 col-lg-6 bg-warning&quot;</span><span class="p">&gt;</span>col-sm-3<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>这个例子演示了在小型、中型、大型和超大型设备上33%的分割。在超小的设备上，它将堆叠（100%宽度）。<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container-fluid&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-sm bg-success&quot;</span><span class="p">&gt;</span>col-sm<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-sm bg-warning&quot;</span><span class="p">&gt;</span>col-sm<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-sm bg-success&quot;</span><span class="p">&gt;</span>col-sm<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+  <span class="c">&lt;!-- Optional JavaScript --&gt;</span>
+  <span class="c">&lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://code.jquery.com/jquery-3.3.1.slim.min.js&quot;</span>
+    <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js&quot;</span>
+    <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js&quot;</span>
+    <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>用浏览器打开index.html文件，观察页面，显示效果如图3-9所示。</p></li>
+</ol>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/Figure3-9.png"><img alt="../_images/Figure3-9.png" src="../_images/Figure3-9.png" style="width: 500px;" /></a>
+<p>图3-9 水平堆叠</p>
+</div></blockquote>
+<p>在上面的示例bootstrap-ex100中，完成了以下内容：</p>
+<ol class="arabic simple">
+<li><p>第一个div元素，分别引用了2个不同的样式：col-sm-9和col-lg-6；</p></li>
+<li><p>第一个div元素引用了col-sm样式。</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id11">
+<h2><span class="sectnum">3.4</span> 学习Bootstrap的组件<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="buttons">
+<h3><span class="sectnum">3.4.1</span> 按钮Buttons<a class="headerlink" href="#buttons" title="Permalink to this headline">¶</a></h3>
+<p>使用 Bootstrap 自定义按钮样式到表单、对话框等操作，并支持多种按钮大小、状态等</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-primary&quot;</span><span class="p">&gt;</span>Primary<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-secondary&quot;</span><span class="p">&gt;</span>Secondary<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-success&quot;</span><span class="p">&gt;</span>Success<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-danger&quot;</span><span class="p">&gt;</span>Danger<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-warning&quot;</span><span class="p">&gt;</span>Warning<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-info&quot;</span><span class="p">&gt;</span>Info<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-light&quot;</span><span class="p">&gt;</span>Light<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-dark&quot;</span><span class="p">&gt;</span>Dark<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-link&quot;</span><span class="p">&gt;</span>Link<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="id12">
+<h4><span class="sectnum">3.4.1.1</span> 大小<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<p>想要较大或较小的按钮？加入 .btn-lg 或 .btn-sm 来应用尺寸。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-primary btn-lg&quot;</span><span class="p">&gt;</span>Large button<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-secondary btn-sm&quot;</span><span class="p">&gt;</span>Small button<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h4><span class="sectnum">3.4.1.2</span> 启用状态<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<p>当启用时，按钮将出现按压（背景较暗、边框较暗、内阴影）。 沒有必要在 &lt;button&gt;添加一个 Class，因为它们使用伪类。但是，如果你需要以动态方式改变状态，则可以使用 .active (并包括 aria-pressed=”true” 属性) 应用相同的启用外观。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-primary btn-lg active&quot;</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">aria-pressed</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>Primary link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-secondary btn-lg active&quot;</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">aria-pressed</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>Link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id14">
+<h4><span class="sectnum">3.4.1.3</span> 停用状态<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<p>通过将 disabled 布林属性添加到任何 &lt;button&gt; 元素，使按钮看起来处于停用状态。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-lg btn-primary&quot;</span> <span class="na">disabled</span><span class="p">&gt;</span>Primary button<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-secondary btn-lg&quot;</span> <span class="na">disabled</span><span class="p">&gt;</span>Button<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>使用 &lt;a&gt; 元素的停用略有不同：</p>
+<ul class="simple">
+<li><p>&lt;a&gt;不支持 disabled 属性，所以你必须添加 .disabled 使它在视觉上看起来被禁用。</p></li>
+<li><p>包括友善的样式行为设计，以禁用&lt;a&gt;按钮上的所有pointer-events 在支持该属性的浏览器中，会看不到禁用的图标。</p></li>
+<li><p>禁用按钮应包含 aria-disabled=”true” 属性来向辅助性技术指示元素的状态。</p></li>
+</ul>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-primary btn-lg disabled&quot;</span> <span class="na">tabindex</span><span class="o">=</span><span class="s">&quot;-1&quot;</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">aria-disabled</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>Primary link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-secondary btn-lg disabled&quot;</span> <span class="na">tabindex</span><span class="o">=</span><span class="s">&quot;-1&quot;</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">aria-disabled</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>Link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="carousel">
+<h3><span class="sectnum">3.4.2</span> 轮播Carousel<a class="headerlink" href="#carousel" title="Permalink to this headline">¶</a></h3>
+<p>用于图片元素、幻灯片或包含文本的轮播元件</p>
+<div class="section" id="id15">
+<h4><span class="sectnum">3.4.2.1</span> 包含控制项<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<p>加入向前及向后的控制项：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;carouselExampleControls&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel slide&quot;</span> <span class="na">data-ride</span><span class="o">=</span><span class="s">&quot;carousel&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-inner&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-item active&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-block w-100&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;...&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-item&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-block w-100&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;...&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-item&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-block w-100&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;...&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-control-prev&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#carouselExampleControls&quot;</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">data-slide</span><span class="o">=</span><span class="s">&quot;prev&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-control-prev-icon&quot;</span> <span class="na">aria-hidden</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;sr-only&quot;</span><span class="p">&gt;</span>Previous<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-control-next&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#carouselExampleControls&quot;</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">data-slide</span><span class="o">=</span><span class="s">&quot;next&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-control-next-icon&quot;</span> <span class="na">aria-hidden</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;sr-only&quot;</span><span class="p">&gt;</span>Next<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id16">
+<h4><span class="sectnum">3.4.2.2</span> 包含指示器<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
+<p>你还可以将指示器与控制项一起添加到轮播中。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;carouselExampleIndicators&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel slide&quot;</span> <span class="na">data-ride</span><span class="o">=</span><span class="s">&quot;carousel&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">ol</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-indicators&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">data-target</span><span class="o">=</span><span class="s">&quot;#carouselExampleIndicators&quot;</span> <span class="na">data-slide-to</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;active&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">data-target</span><span class="o">=</span><span class="s">&quot;#carouselExampleIndicators&quot;</span> <span class="na">data-slide-to</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">data-target</span><span class="o">=</span><span class="s">&quot;#carouselExampleIndicators&quot;</span> <span class="na">data-slide-to</span><span class="o">=</span><span class="s">&quot;2&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-inner&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-item active&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-block w-100&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;...&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-item&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-block w-100&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;...&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-item&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-block w-100&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;...&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-control-prev&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#carouselExampleIndicators&quot;</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">data-slide</span><span class="o">=</span><span class="s">&quot;prev&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-control-prev-icon&quot;</span> <span class="na">aria-hidden</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;sr-only&quot;</span><span class="p">&gt;</span>Previous<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-control-next&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#carouselExampleIndicators&quot;</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">data-slide</span><span class="o">=</span><span class="s">&quot;next&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-control-next-icon&quot;</span> <span class="na">aria-hidden</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;sr-only&quot;</span><span class="p">&gt;</span>Next<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id17">
+<h4><span class="sectnum">3.4.2.3</span> 包含字幕<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h4>
+<p>在.carousel-item 中使用 .carousel-caption 添加字幕到你的幻灯片。 它们会隐藏在较小的 viewport 上，如下所示，可用的显示工具。 我们最初用.d-none 隐藏它们，并将它们显示在中型的设置上 （使用 .d-md-block）。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;carouselExampleCaptions&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel slide&quot;</span> <span class="na">data-ride</span><span class="o">=</span><span class="s">&quot;carousel&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">ol</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-indicators&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">data-target</span><span class="o">=</span><span class="s">&quot;#carouselExampleCaptions&quot;</span> <span class="na">data-slide-to</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;active&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">data-target</span><span class="o">=</span><span class="s">&quot;#carouselExampleCaptions&quot;</span> <span class="na">data-slide-to</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">data-target</span><span class="o">=</span><span class="s">&quot;#carouselExampleCaptions&quot;</span> <span class="na">data-slide-to</span><span class="o">=</span><span class="s">&quot;2&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-inner&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-item active&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-block w-100&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;...&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-caption d-none d-md-block&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h5</span><span class="p">&gt;</span>First slide label<span class="p">&lt;/</span><span class="nt">h5</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Nulla vitae elit libero, a pharetra augue mollis interdum.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-item&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-block w-100&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;...&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-caption d-none d-md-block&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h5</span><span class="p">&gt;</span>Second slide label<span class="p">&lt;/</span><span class="nt">h5</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-item&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-block w-100&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;...&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-caption d-none d-md-block&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h5</span><span class="p">&gt;</span>Third slide label<span class="p">&lt;/</span><span class="nt">h5</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Praesent commodo cursus magna, vel scelerisque nisl consectetur.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-control-prev&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#carouselExampleCaptions&quot;</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">data-slide</span><span class="o">=</span><span class="s">&quot;prev&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-control-prev-icon&quot;</span> <span class="na">aria-hidden</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;sr-only&quot;</span><span class="p">&gt;</span>Previous<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-control-next&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#carouselExampleCaptions&quot;</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">data-slide</span><span class="o">=</span><span class="s">&quot;next&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carousel-control-next-icon&quot;</span> <span class="na">aria-hidden</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;sr-only&quot;</span><span class="p">&gt;</span>Next<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="jumbotron">
+<h3><span class="sectnum">3.4.3</span> 超大屏幕Jumbotron<a class="headerlink" href="#jumbotron" title="Permalink to this headline">¶</a></h3>
+<p>这是一个轻量极的、灵活的元件，用于调用对特色内容或信息的额外关注。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;jumbotron&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;display-4&quot;</span><span class="p">&gt;</span>Hello, world!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lead&quot;</span><span class="p">&gt;</span>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">hr</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;my-4&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>It uses utility classes for typography and spacing to space content out within the larger container.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-primary btn-lg&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;button&quot;</span><span class="p">&gt;</span>Learn more<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>要想让广告屏占满萤幕宽度、不带有圆角，请加 .jumbotron-fluid ，并在裡面添加一个 .container 或 .container-fluid 。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;jumbotron jumbotron-fluid&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;display-4&quot;</span><span class="p">&gt;</span>Fluid jumbotron<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lead&quot;</span><span class="p">&gt;</span>This is a modified jumbotron that occupies the entire horizontal space of its parent.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="navs">
+<h3><span class="sectnum">3.4.4</span> 导航Navs<a class="headerlink" href="#navs" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id18">
+<h4><span class="sectnum">3.4.4.1</span> 基础样式<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h4>
+<p>Bootstrap框架中制作导航条主要通过“.nav”样式。默认的“.nav”样式不提供默认的导航样式，必须附加另外一个样式才会有效，比如“nav-tabs”、“nav-pills”之类。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link active&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Active<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link disabled&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">tabindex</span><span class="o">=</span><span class="s">&quot;-1&quot;</span> <span class="na">aria-disabled</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>Disabled<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tab">
+<h4><span class="sectnum">3.4.4.2</span> 标签形tab导航<a class="headerlink" href="#tab" title="Permalink to this headline">¶</a></h4>
+<p>标签形导航是通过“nav-tabs”样式来实现。在制作标签形导航时需要在原导航“nav”上追加此类名.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav nav-tabs&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link active&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Active<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link disabled&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">tabindex</span><span class="o">=</span><span class="s">&quot;-1&quot;</span> <span class="na">aria-disabled</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>Disabled<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pills">
+<h4><span class="sectnum">3.4.4.3</span> 胶囊形(pills)导航<a class="headerlink" href="#pills" title="Permalink to this headline">¶</a></h4>
+<p>只需要把类名“nav-tabs”换成“nav-pills”即可</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav nav-pills&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link active&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Active<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link disabled&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">tabindex</span><span class="o">=</span><span class="s">&quot;-1&quot;</span> <span class="na">aria-disabled</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>Disabled<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id19">
+<h4><span class="sectnum">3.4.4.4</span> 自适应导航<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h4>
+<p>自适应导航指的是导航占据容器全部宽度，而且菜单项可以像表格的单元格一样自适应宽度。使用class nav-justified实现,需要和“nav-tabs”或者“nav-pills”配合在一起使用。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav nav-pills nav-justified&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link active&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Active<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Much longer nav link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link disabled&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">tabindex</span><span class="o">=</span><span class="s">&quot;-1&quot;</span> <span class="na">aria-disabled</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>Disabled<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id20">
+<h4><span class="sectnum">3.4.4.5</span> 下拉菜单<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h4>
+<p>只需要将li当作父容器，使用类名“dropdown”，同时在li中嵌套一个div</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav nav-pills&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link active&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Active<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item dropdown&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link dropdown-toggle&quot;</span> <span class="na">data-toggle</span><span class="o">=</span><span class="s">&quot;dropdown&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">aria-haspopup</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">aria-expanded</span><span class="o">=</span><span class="s">&quot;false&quot;</span><span class="p">&gt;</span>Dropdown<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;dropdown-menu&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;dropdown-item&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Action<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;dropdown-item&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Another action<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;dropdown-item&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Something else here<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;dropdown-divider&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;dropdown-item&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Separated link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link disabled&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">tabindex</span><span class="o">=</span><span class="s">&quot;-1&quot;</span> <span class="na">aria-disabled</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>Disabled<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="navbar">
+<h3><span class="sectnum">3.4.5</span> 导航条Navbar<a class="headerlink" href="#navbar" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>导航栏需要包装 .navbar 并通过.navbar-expand{-sm|-md|-lg|-xl} 用于响应式折叠和 配色方案 类。.</p></li>
+<li><p>默认情况下，Navbars及其内容是浮动的。 使用 optional containers 限制它们的水平宽度。</p></li>
+<li><p>使用我们的间距和 Flex 工具用于控制导航栏中间距和对齐。</p></li>
+<li><p>默认情况下，导航栏会响应，但你可以轻松修改它们以更改它。 响应行为取决于我们的Collapse JavaScript插件。</p></li>
+<li><p>打印时默认隐藏导航栏。 强制他们通过添加打印 .d-print 在 navbar上。 查看 工具-&gt;显示 了解更多。</p></li>
+<li><p>使用 &lt;nav&gt; 元素确保亲和性，或者如果使用更通用的元素，如 &lt;div&gt;，在导览列中添加一个 role=”navigation” ，为使用者的辅助技术明确标识为导览区域。</p></li>
+</ul>
+<div class="section" id="id21">
+<h4><span class="sectnum">3.4.5.1</span> 支持的内容<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h4>
+<p>Navbars内置了对少数子组件的支持。 根据需要选择以下内容：</p>
+<ul class="simple">
+<li><p>.navbar-brand 适用于你的公司，产品或项目名称</p></li>
+<li><p>.navbar-nav 用于全高度和轻量级导航（包括对下拉菜单的支持）。</p></li>
+<li><p>.navbar-toggler 用于我们的折叠插件和其他 navigation toggling 行为。</p></li>
+<li><p>.form-inline 用于任何表单控制元件和操作。</p></li>
+<li><p>.navbar-text 用于垂直居中的文本字串。</p></li>
+<li><p>.collapse.navbar-collapse 用于通过父断点对导航栏内容进行分组和隐藏。</p></li>
+</ul>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">nav</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar navbar-expand-lg navbar-light bg-light&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-brand&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Navbar<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-toggler&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">data-toggle</span><span class="o">=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-target</span><span class="o">=</span><span class="s">&quot;#navbarSupportedContent&quot;</span> <span class="na">aria-controls</span><span class="o">=</span><span class="s">&quot;navbarSupportedContent&quot;</span> <span class="na">aria-expanded</span><span class="o">=</span><span class="s">&quot;false&quot;</span> <span class="na">aria-label</span><span class="o">=</span><span class="s">&quot;Toggle navigation&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-toggler-icon&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;collapse navbar-collapse&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;navbarSupportedContent&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-nav mr-auto&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item active&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Home <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;sr-only&quot;</span><span class="p">&gt;</span>(current)<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item dropdown&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link dropdown-toggle&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;navbarDropdown&quot;</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">data-toggle</span><span class="o">=</span><span class="s">&quot;dropdown&quot;</span> <span class="na">aria-haspopup</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">aria-expanded</span><span class="o">=</span><span class="s">&quot;false&quot;</span><span class="p">&gt;</span>
+          Dropdown
+        <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;dropdown-menu&quot;</span> <span class="na">aria-labelledby</span><span class="o">=</span><span class="s">&quot;navbarDropdown&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;dropdown-item&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Action<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;dropdown-item&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Another action<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;dropdown-divider&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;dropdown-item&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Something else here<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link disabled&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">tabindex</span><span class="o">=</span><span class="s">&quot;-1&quot;</span> <span class="na">aria-disabled</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>Disabled<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-inline my-2 my-lg-0&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control mr-sm-2&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;search&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Search&quot;</span> <span class="na">aria-label</span><span class="o">=</span><span class="s">&quot;Search&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-outline-success my-2 my-sm-0&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Search<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id22">
+<h4><span class="sectnum">3.4.5.2</span> 品牌<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h4>
+<p>The .navbar-brand 可以应用于大多数元素，但锚点效果最好，因为某些元素可能需要工具类或自定义样式。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- As a link --&gt;</span>
+<span class="p">&lt;</span><span class="nt">nav</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar navbar-light bg-light&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-brand&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Navbar<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- As a heading --&gt;</span>
+<span class="p">&lt;</span><span class="nt">nav</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar navbar-light bg-light&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-brand mb-0 h1&quot;</span><span class="p">&gt;</span>Navbar<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>增加图片到 .navbar-brand 可能需要自定义样式或工具来正确调整大小。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Image and text --&gt;</span>
+<span class="p">&lt;</span><span class="nt">nav</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar navbar-light bg-light&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-brand&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/docs/assets/brand/bootstrap-solid.svg&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;30&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;30&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-inline-block align-top&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
+    Bootstrap
+  <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id23">
+<h4><span class="sectnum">3.4.5.3</span> 导航<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h4>
+<p>导览的链接建立在我们的 .nav 选项上，并使用专属的 Class 并且需要使用 toggler classes 在响应式中作切换。 在导览列中的导览元件，也将佔用更多的水平空间，以保持你的导览列内容安全对齐。</p>
+<p>活动状态 - 用 .active - 表示当前页面。可以用于 .nav-link 或 .nav-item。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">nav</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar navbar-expand-lg navbar-light bg-light&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-brand&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Navbar<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-toggler&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">data-toggle</span><span class="o">=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-target</span><span class="o">=</span><span class="s">&quot;#navbarNav&quot;</span> <span class="na">aria-controls</span><span class="o">=</span><span class="s">&quot;navbarNav&quot;</span> <span class="na">aria-expanded</span><span class="o">=</span><span class="s">&quot;false&quot;</span> <span class="na">aria-label</span><span class="o">=</span><span class="s">&quot;Toggle navigation&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-toggler-icon&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;collapse navbar-collapse&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;navbarNav&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-nav&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item active&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Home <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;sr-only&quot;</span><span class="p">&gt;</span>(current)<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Features<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Pricing<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link disabled&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Disabled<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id24">
+<h4><span class="sectnum">3.4.5.4</span> 表单<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h4>
+<p>将各种表单控件和组件放在导航栏中.form-inline。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">nav</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar navbar-light bg-light&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-brand&quot;</span><span class="p">&gt;</span>Navbar<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-inline&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control mr-sm-2&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;search&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Search&quot;</span> <span class="na">aria-label</span><span class="o">=</span><span class="s">&quot;Search&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-outline-success my-2 my-sm-0&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Search<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id25">
+<h4><span class="sectnum">3.4.5.5</span> 配色方案<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h4>
+<p>由于主题 class 和。 background-color 工具类 class 的结合，主题化导览列从未如此简单。 从 .navbar-light 用于浅色背景颜色, 或 .navbar-dark 深色背景颜色。 然后，自定义 .bg-* 工具。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">nav</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar navbar-dark bg-dark&quot;</span><span class="p">&gt;</span>
+  <span class="c">&lt;!-- Navbar content --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">nav</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar navbar-dark bg-primary&quot;</span><span class="p">&gt;</span>
+  <span class="c">&lt;!-- Navbar content --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">nav</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar navbar-light&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;background-color: #e3f2fd;&quot;</span><span class="p">&gt;</span>
+  <span class="c">&lt;!-- Navbar content --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="icos">
+<h3><span class="sectnum">3.4.6</span> 图标Icos<a class="headerlink" href="#icos" title="Permalink to this headline">¶</a></h3>
+<p>默认情况下，Bootstrap 不包含图标库.</p>
+<p>推荐使用
+- Font Awesome <a class="reference external" href="https://fontawesome.com/">https://fontawesome.com/</a></p>
+<p>Font Awesome 是一套绝佳的图标字体库和CSS框架。</p>
+<p>Font Awesome 字体为您提供可缩放矢量图标,它可以被定制大小、颜色、阴影以及任何可以用CSS的样式。</p>
+<p>要使用Font Awesome图标，请在HTML页面的 部分中添加以下行：</p>
+<p>1、国内推荐 CDN：</p>
+<p><cite>&lt;link rel=”stylesheet” href=”https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css”&gt;</cite></p>
+<p>2、海外推荐 CDN</p>
+<p><cite>&lt;link rel=”stylesheet” href=”https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css”&gt;</cite></p>
+<p>您可以将Font Awesome图标使用在几乎任何地方，只需要使用CSS前缀 fa ，再加上图标名称。 Font Awesome是为使用内联元素而设计的。我们通常更喜欢使用 &lt;i&gt; ，因为它更简洁。 但实际上使用 &lt;span&gt; 才能更加语义化。</p>
+<p><a class="reference external" href="https://fontawesome.dashgame.com">https://fontawesome.dashgame.com</a> 获取更多使用技巧.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+  <span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+     <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Bootstrap 模板<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;./css/styles.css&quot;</span><span class="p">&gt;</span>
+        <span class="c">&lt;!-- 引入 Bootstrap --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+          <span class="nt">footer</span><span class="p">{</span>
+          <span class="k">background-color</span><span class="p">:</span> <span class="kc">cadetblue</span><span class="p">;</span>
+          <span class="k">color</span><span class="p">:</span><span class="mh">#fff</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+     <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+     <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">footer</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;footer-section&quot;</span> <span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container &quot;</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row text-center&quot;</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-sm-6 col-md-4 col-lg-4 p-5&quot;</span><span class="p">&gt;</span>
+                          <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Contact Us<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+                          <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span>Our Address and contact Information<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+                      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-sm-6 col-md-4 col-lg-4 p-5&quot;</span><span class="p">&gt;</span>
+                              <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Connect With us<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+                              <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fa fa-facebook&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                              <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fa fa-linkedin&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                              <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fa fa-twitter&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                              <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fa fa-google&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                              <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fa fa-youtube&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+
+                      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-sm-6 col-md-4 col-lg-4 p-5&quot;</span><span class="p">&gt;</span>
+                          <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fa fa-google&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
+        <span class="c">&lt;!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+     <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id26">
+<h2><span class="sectnum">3.5</span> 参考<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://code.z01.com/v4/docs/">Bootstrap 中文教程</a></p></li>
+<li><p><a class="reference external" href="https://getbootstrap.com/docs/4.4/getting-started/introduction">Bootstrap 官方教程</a></p></li>
+<li><p><a class="reference external" href="https://fontawesome.dashgame.com">Font Awesome 官方教程</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="javaScript.html" class="btn btn-neutral float-right" title="4 Javascript基础学习" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="media.html" class="btn btn-neutral float-left" title="2 学习自适应网页设计" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright CVI Talent
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

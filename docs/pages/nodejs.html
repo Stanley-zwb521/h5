@@ -1,0 +1,544 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>9 Node.js 基础</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="10 错误集锦" href="issue.html" />
+    <link rel="prev" title="8 学习GitHub操作" href="github.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/front+end+dev.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">培训资料：</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="first.html">教学计划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h5.html"><span class="sectnum">1</span> 使用 HTML5 和 CSS3 设计个人页面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="media.html"><span class="sectnum">2</span> 学习自适应网页设计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bootstrap.html"><span class="sectnum">3</span> Bootstrap学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javaScript.html"><span class="sectnum">4</span> Javascript基础学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="async.html"><span class="sectnum">5</span> Javascript异步编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html"><span class="sectnum">6</span> 学习与HTTP交互</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html"><span class="sectnum">7</span> 学习如何测试</a></li>
+</ul>
+<p class="caption"><span class="caption-text">附录：</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="github.html"><span class="sectnum">8</span> 学习GitHub操作</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><span class="sectnum">9</span> Node.js 基础</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1"><span class="sectnum">9.1</span> 设置和运行Node.js</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#npm"><span class="sectnum">9.1.1</span> NPM包管理器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2"><span class="sectnum">9.1.2</span> 模块的安装模式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#npm-install"><span class="sectnum">9.1.3</span> npm install 命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3"><span class="sectnum">9.1.4</span> 更新依赖</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4"><span class="sectnum">9.1.5</span> 卸载依赖</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#package-json"><span class="sectnum">9.2</span> package.json文件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5"><span class="sectnum">9.2.1</span> 更新package.json</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6"><span class="sectnum">9.2.2</span> 版本号</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#node-modules"><span class="sectnum">9.2.3</span> node_modules文件夹</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id7"><span class="sectnum">9.3</span> 搭建开发服务器</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#live-server"><span class="sectnum">9.3.1</span> 搭建live-server 服务器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#json-server"><span class="sectnum">9.3.2</span> 搭建json-server 服务器</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8"><span class="sectnum">9.4</span> 小结</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="issue.html"><span class="sectnum">10</span> 错误集锦</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CVI Talent</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">首页</a> &raquo;</li>
+        
+      <li><span class="sectnum">9</span> Node.js 基础</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        <a href="https://pages.github.ibm.com/lanzejun/talent/index.html" class="fa fa-github"> CVITube</a>
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="node-js">
+<h1><span class="sectnum">9</span> Node.js 基础<a class="headerlink" href="#node-js" title="Permalink to this headline">¶</a></h1>
+<p>Node.js是基于Chrome JavaScript运行时建立的一个平台，实际上它是对Google Chrome V8引擎进行了封装，它主要用于创建快速的、可扩展的网络应用。Node.js采用事件驱动和非阻塞I/O模型，使其变得轻量和高效，非常适合构建运行在分布式设备的数据密集型的实时应用。</p>
+<p>Node.js则是服务器端JavaScript的代码解析器，存在于服务器端的JavaScript代码由Node.js来解析和运行。
+Node.js也是JavaScript运行的一种环境，Node.js为JavaScript提供了操作文件、创建HTTP服务、 创建TCP/UDP服务等的接口，所以Node.js可以完成其他后台语言（Python、PHP等）能完成的工作。</p>
+<p>Node.js还通过包管理器（NPM）提供依赖项管理。通过NPM能够管理项目中所使用的第三方JavaScript库的依赖关系。掌握NPM的操作是非常重要的。通过NPM还可以将Angular代码作为模块发布供其他人使用。</p>
+<p>可以通过“<a class="reference external" href="https://nodejs.org/download">https://nodejs.org/download</a>”下载并安装Node.js，如图9-1所示。</p>
+<a class="reference internal image-reference" href="../_images/Figure6-1.png"><img alt="Node主页" src="../_images/Figure6-1.png" style="width: 500px;" /></a>
+<p>图9-1 Node主页</p>
+<p>您可以选择下载和安装最推荐的版本或者最新的版本。显然，前者更稳定，这就是推荐使用它的原因。</p>
+<div class="section" id="id1">
+<h2><span class="sectnum">9.1</span> 设置和运行Node.js<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>下面的命令会在项目中初始化Node.js项目。回答屏幕上提示的问题然后生成package.json文件(稍后介绍):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">init</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>“npm”命令用于调用Node包管理器。</p>
+</div>
+<p>一旦安装了Node.js，就可以通过命令行进入node运行环境及运行JavaScript代码。在命令行里输入“node”, 然后按Enter键运行:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ node
+&gt; console.log(&#39;Hello World&#39;);
+Hello World
+</pre></div>
+</div>
+<p>使用node命令更有用的方法是输入这个命令加上文件名作为参数。这将以JavaScript的形式执行文件的内容。在下面这个例子中，我们将创建文件hello.js:</p>
+<blockquote>
+<div><div class="highlight-TypeScript notranslate"><div class="highlight"><pre><span></span><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">);</span>
+<span class="p">},</span> <span class="mi">2000</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>现在我们可以运行它:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">node</span> <span class="n">hello</span><span class="o">.</span><span class="n">js</span>
+</pre></div>
+</div>
+<p>程序等待两秒钟，然后将“Hello World”写入控制台。</p>
+<div class="section" id="npm">
+<h3><span class="sectnum">9.1.1</span> NPM包管理器<a class="headerlink" href="#npm" title="Permalink to this headline">¶</a></h3>
+<p>现在我们知道了如何通过Node运行JavaScript代码，接下来需要了解一下安装模块。你可能认为这很简单，但其实并不是， 因为许多节点模块依赖于其他节点模块来工作。所以,当你安装一个Node模块，Node需要确保任何一个节点模块的依赖包都已经安装了。NPM包管理器就是专门处理此事，它能为项目添加、更新和删除Node模块，以及管理这些相互依赖关系。</p>
+<p>为此，Node.js提供了npm命令。这命令有许多不同的参数，允许您安装、更新或卸载模块。</p>
+<p>网站http://docs.npmjs.com 详细地介绍了npm。</p>
+</div>
+<div class="section" id="id2">
+<h3><span class="sectnum">9.1.2</span> 模块的安装模式<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>安装Node.js模块有两种模式。</p>
+<ul>
+<li><p>Global（全局）：如果你想通过命令行使用你所安装的模块，可以在命令行里的npm install后添加 -g:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="n">g</span> <span class="n">typescript</span>
+</pre></div>
+</div>
+</li>
+<li><p>Local（本地项目内）：如果你不想安装全局的模式，安装在本地模块中，从npm安装命令行中删除 -g</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">express</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="npm-install">
+<h3><span class="sectnum">9.1.3</span> npm install 命令<a class="headerlink" href="#npm-install" title="Permalink to this headline">¶</a></h3>
+<p>要安装Express，可以在命令行输入以下命令:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">express</span>
+</pre></div>
+</div>
+<p>这不会更新Node.js依赖文件package.json(稍后将详细介绍)。</p>
+<p>如果需要将此模块作为项目依赖项保存在该文件中，请添加以下参数到命令中:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">save</span> <span class="c1"># 或 -S（大写字母）</span>
+<span class="o">--</span><span class="n">save</span><span class="o">-</span><span class="n">dev</span> <span class="c1"># 或 -D（大写字母）</span>
+</pre></div>
+</div>
+<ul>
+<li><p>save参数:这将在生产环境中添加您所需要安装的Node.js模块，如下所示你的package.json文件会被修改以包含此依赖项:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">express</span> <span class="o">--</span><span class="n">save</span> <span class="c1"># 或者 -S（大写字母）</span>
+</pre></div>
+</div>
+</li>
+<li><p>save-dev参数: 这将仅在开发环境中（不包括生产环境）添加您所需要安装的Node.js模块，如下所示你的package.json文件会被修改以包含此依赖项:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">express</span> <span class="o">--</span><span class="n">save</span><span class="o">-</span><span class="n">dev</span> <span class="c1"># 或者 -D（大写字母）</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>从 npm 5.0.0 开始，安装的模块会被默认添加为依赖关系，所以不再需要 –save 选项。</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h3><span class="sectnum">9.1.4</span> 更新依赖<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>有时依赖关系会改变。您想要添加一个额外的模块，但是添加该模块要求其他模块具有较高的版本号。节点提供了以下命令检查您的模块是否过时:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">outdated</span>
+</pre></div>
+</div>
+<p>Node.js中有两种不同的模块更新方式。</p>
+<ol class="arabic simple">
+<li><p>可以使用命令npm update更新指定模块。如果您想要保存结果，还需要添加–save选项。json文件也会保存新版本的信息。如果指定了“-g”标志，则该命令将更新全局安装的包。</p></li>
+<li><p>你可以编辑这个package.json文件，更新模块依赖，然后运行“npm update”。这将更新您的模块以匹配此文件中的规范。</p></li>
+</ol>
+<p>如果您已经安装了Node.js，则可以通过运行以下命令来检查它的版本:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="o">-</span> <span class="n">v</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3><span class="sectnum">9.1.5</span> 卸载依赖<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>您可以执行`npm uninstall`命令卸载指定的模块。如果您想从依赖项列表中移除该模块，还需要添加–save选项。json文件会随之变化。如果指定了-g标志，则该命令将删除全局安装包。</p>
+</div>
+</div>
+<div class="section" id="package-json">
+<h2><span class="sectnum">9.2</span> package.json文件<a class="headerlink" href="#package-json" title="Permalink to this headline">¶</a></h2>
+<p>Node.js被设计为从项目文件夹中的命令行运行。它允许开发人员可以将与其项目相关的信息存储在package.json文件中,该文件保存在项目的根文件夹中。在这个文件包含了许多与你项目有用的信息：</p>
+<ul class="simple">
+<li><p>项目的名称和版本。</p></li>
+<li><p>项目所依赖的Node.js模块(以及版本)。</p></li>
+<li><p>您的项目在生产中需要哪些节点模块。</p></li>
+<li><p>开发中的项目需要哪些节点模块(即生产不需要)。</p></li>
+</ul>
+<div class="section" id="id5">
+<h3><span class="sectnum">9.2.1</span> 更新package.json<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>您可以用以下两种方式更新这个packages.json文件：</p>
+<ul class="simple">
+<li><p>通过使用node命令(在命令行上)安装/更新/删除节点模块并更新此文件。</p></li>
+<li><p>你可以自己编辑这个文件。然后运行节点命令来安装/更新/删除节点模块以匹配此文件。</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3><span class="sectnum">9.2.2</span> 版本号<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>package.json文件允许开发人员指定项目需要的Node模块。在指定此文件中的依赖项时，还指定这些依赖项的版本号——例如，1.6.1。Node有多重方式，灵活地指定版本号， 请参考表6-3。</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 77%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>版本</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.6.1</p></td>
+<td><p>完全匹配版本 1.6.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>&gt;1.6.1</p></td>
+<td><p>高于版本 1.6.1</p></td>
+</tr>
+<tr class="row-even"><td><p>&gt;=1.6.1</p></td>
+<td><p>高于或者等于版本 1.6.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;1.6.1</p></td>
+<td><p>低于版本 1.6.1</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt;=1.6.1</p></td>
+<td><p>低于或等于版本 1.6.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>～1.6.1</p></td>
+<td><p>约等于版本 1.6.1，等价于 &gt;=1.6.1 &lt;1.(6+1).0 等价于 &gt;=1.6.1 &lt;1.7.0</p></td>
+</tr>
+<tr class="row-even"><td><p>^1.6.1</p></td>
+<td><p>^1.6.1 等价于 &gt;=1.6.1 &lt;2.0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.6.x</p></td>
+<td><p>匹配版本的前2位数 1.6.*</p></td>
+</tr>
+<tr class="row-even"><td><p>*</p></td>
+<td><p>匹配任何版本</p></td>
+</tr>
+</tbody>
+</table>
+<p>表6-3. 版本信息</p>
+</div>
+<div class="section" id="node-modules">
+<h3><span class="sectnum">9.2.3</span> node_modules文件夹<a class="headerlink" href="#node-modules" title="Permalink to this headline">¶</a></h3>
+<p>在安装节点模块时，将下载该模块及依赖项并将其放入项目文件夹中的node_modules文件夹中。因为安装的节点模块有许多依赖项，所以您最终会得到一个巨大的node_modules文件夹，里面有几十个模块子目录。有时npm需要很长时间来下载和安装项目节点模块。注意不要将这个文件夹从一个地方复制到另一个地方，因为这可能会导致不可知的后果。如果要将项目从一台计算机复制到另一台计算机，请删除“node_modules”文件夹，然后在目标计算机上运行“npm install”安装Node模块。</p>
+<p>在Node.js中安装模块有两种不同的方式。你可以运行命令“npm install”指定要安装模块或者编辑package.json文件，然后运行“npm install”安装。</p>
+<p>手动编辑package.json文件是安装多个模块时的最佳方式。首先，您必须设置一个package.json文件，其中包含应用程序的概述，位于项目的根文件夹中。</p>
+<p>有许多可用字段，但在下面的示例package.json文件中， 你可以看到一个非常简单的例子。依赖信息描述了要安装的模块的名称和版本。在本例中，我们还将依赖Express模块:</p>
+<blockquote>
+<div><div class="highlight-json notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="p">{</span>
+     <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;MyStaticServer&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;0.0.1&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;dependencies&quot;</span> <span class="p">:</span> <span class="p">{</span>
+         <span class="nt">&quot;express&quot;</span> <span class="p">:</span> <span class="s2">&quot;3.3.x&quot;</span>
+     <span class="p">}</span>
+ <span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+<p>安装package.json文件中列出的依赖项，在项目根文件夹中命令行里执行以下命令:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2><span class="sectnum">9.3</span> 搭建开发服务器<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>我们在前端开发工作中，不可避免的需要搭建本地Web服务器或者模拟后端RestFul服务器，下面我们介绍2种常见的服务器。目前流行的Web服务器主要有3种：http-server、lite-server和live-server，这个网址有关于他们的流行和下载调查数据：<a class="reference external" href="https://www.npmtrends.com/http-server-vs-lite-server-vs-live-server">https://www.npmtrends.com/http-server-vs-lite-server-vs-live-server</a>，他们有相同的安装和使用方式，下面我们选取其中的一种，进行详细的介绍。</p>
+<div class="section" id="live-server">
+<h3><span class="sectnum">9.3.1</span> 搭建live-server 服务器<a class="headerlink" href="#live-server" title="Permalink to this headline">¶</a></h3>
+<p>live-server 是一个 Web 服务器，可以帮助前端人员搭建临时的http服务器。用它来热加载HTML/ JavaScript/CSS文件，修改本地文件后，浏览器能够立即同步，自动加载，自动刷新。相比http-server来说，live-server具备了实时刷新的功能。</p>
+<p><strong>1. 全局安装live-server服务器的命令格式如下：</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="n">g</span> <span class="n">live</span><span class="o">-</span><span class="n">server</span>
+</pre></div>
+</div>
+<p><strong>2. 具体使用</strong></p>
+<ol class="arabic">
+<li><p>在web项目根目录使用命令:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">live</span><span class="o">-</span><span class="n">server</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<blockquote>
+<div><p>执行命令后，浏览器会自动打开，并访问地址：<a class="reference external" href="http://localhost:8080">http://localhost:8080</a>，8080是默认端口。</p>
+</div></blockquote>
+<ol class="arabic" start="2">
+<li><p>修改端口号，使用如下命令:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">live</span><span class="o">-</span><span class="n">server</span> <span class="o">--</span><span class="n">port</span><span class="o">=</span><span class="mi">9000</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>其他详细信息，请访问站点：<a class="reference external" href="http://tapiov.net/live-server/">http://tapiov.net/live-server/</a></p>
+</div>
+<div class="section" id="json-server">
+<h3><span class="sectnum">9.3.2</span> 搭建json-server 服务器<a class="headerlink" href="#json-server" title="Permalink to this headline">¶</a></h3>
+<p>json-server 是一个 Node.js 模块，运行 Express 服务器，你可以指定一个 json 文件作为 api 的数据源。
+我们使用 json-server 在本地搭建一个JSON服务器，对外提供 RestFull API 服务，前端开发工程师，在无后端的情况下，可以用它来作为后端 API 服务器。</p>
+<p><strong>1. 全局安装json-server服务器的命令格式如下：</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="n">g</span> <span class="n">json</span><span class="o">-</span><span class="n">server</span>
+</pre></div>
+</div>
+<p><strong>2. 具体使用</strong></p>
+<ol class="arabic">
+<li><p>新建一个data文件夹，在data文件夹中创建一个db.json的文件:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:[]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>启动json-server，使用如下命令:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">data</span>
+<span class="n">json</span><span class="o">-</span><span class="n">server</span> <span class="n">db</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+</li>
+<li><p>控制台输出启动信息:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\{^_^}/ hi!
+
+Loading db.json
+Done
+
+Resources
+http://localhost:3000/data
+
+Home
+http://localhost:3000
+</pre></div>
+</div>
+</li>
+<li><p>上述信息表明我们的json-server 服务器已经启动成功。接下来可以通过postman及浏览器发送请求，获得相应数据。 如发送GET请求 <a class="reference external" href="http://localhost:3000/data">http://localhost:3000/data</a></p></li>
+<li><p>增加数据。发送POST请求 <a class="reference external" href="http://localhost:3000/data">http://localhost:3000/data</a> ，请求数据如下：</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-json notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="p">{</span>
+     <span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="s2">&quot;docedit.cn&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;age&quot;</span><span class="p">:</span><span class="mi">3</span>
+ <span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>返回response 结果:</p>
+<div class="highlight-json notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="p">{</span>
+     <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;docedit.cn&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+     <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span>
+ <span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li><p>其他方法，参阅站点：<a class="reference external" href="https://github.com/typicode/json-server">https://github.com/typicode/json-server</a></p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><span class="sectnum">9.4</span> 小结<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>现在您已经知道了Node.js是什么，以及如何使用它来管理项目的第三方依赖包，上面我们介绍了如果用 “npm” 命令的用法，是时候开始使用Angular CLI(the command line interface)进行编码了。第7章我们就开始介绍它。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="issue.html" class="btn btn-neutral float-right" title="10 错误集锦" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="github.html" class="btn btn-neutral float-left" title="8 学习GitHub操作" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright CVI Talent
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
